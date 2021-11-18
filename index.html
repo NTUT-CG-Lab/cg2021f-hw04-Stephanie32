@@ -404,13 +404,13 @@
 			}
 
 			function saveJson(){
-				var index_data = {};
-				index_data["location"] = modelFile_list[Index];
+				var index_data = {"morphlocal":{}};
+				index_data["morphlocal"]["location"] = modelFile_list[Index];
 				for ( let i = 0; i < 37; i ++ ) {
 					var key = textarray[ i ];
 					//console.log(key + ': ' + stdlocal[ i ]);
 					//index_data[i] = stdlocal[i];
-					index_data[key] = stdlocal[i];
+					index_data["morphlocal"][String(i)] = stdlocal[i];
 				}
 				console.log(index_data);
 				
@@ -420,11 +420,11 @@
 				var evt = document.createEvent("HTMLEvents");
 				evt.initEvent("click");
 				if(Index == 0)
-					var file_name = 'KizunaAI_morph_index.json';
+					var file_name = 'KizunaAI_morphlocal.json';
 				else if(Index == 1)
-					var file_name = 'るいのれ式物述有栖_morph_index.json';
+					var file_name = 'るいのれ式物述有栖_morphlocal.json';
 				else if(Index == 2)
-					var file_name = '天宮こころ_morph_index.json';
+					var file_name = '天宮こころ_morphlocal.json';
 				aLink.download = file_name;
 				aLink.href = URL.createObjectURL(blob);
 				aLink.dispatchEvent(evt);
